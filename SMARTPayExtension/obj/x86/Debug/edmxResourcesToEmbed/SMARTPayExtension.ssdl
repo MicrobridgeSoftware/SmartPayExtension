@@ -1,0 +1,1355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMARTPayExtensionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Allowance">
+    <Key>
+      <PropertyRef Name="AllowanceId" />
+    </Key>
+    <Property Name="AllowanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AllowanceDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AllowanceRate" Type="money" Nullable="false" />
+    <Property Name="CalculateOnMaxHours" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="PayrollCode" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContractorAddon">
+    <Key>
+      <PropertyRef Name="ContractorAddonId" />
+    </Key>
+    <Property Name="ContractorAddonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="AllowanceId" Type="int" Nullable="false" />
+    <Property Name="DutyId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="AllowanceRate" Type="money" Nullable="false" />
+    <Property Name="CalculateOnMaxHours" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerSpecificRate">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="GuardTypeId" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="money" Nullable="false" />
+    <Property Name="Allowance" Type="bit" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DutyAllowanceMapping">
+    <Key>
+      <PropertyRef Name="DutyAllowanceId" />
+    </Key>
+    <Property Name="DutyAllowanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DutyId" Type="int" Nullable="false" />
+    <Property Name="AllowanceId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeOwnWeapon">
+    <Key>
+      <PropertyRef Name="EmployeeOwnWeaponId" />
+    </Key>
+    <Property Name="EmployeeOwnWeaponId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="AllowanceId" Type="int" Nullable="false" />
+    <Property Name="FirearmDescription" Type="varchar" MaxLength="50" />
+    <Property Name="SerialNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PermitExpiration" Type="datetime" />
+    <Property Name="LastmodifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExportedTransactions">
+    <Key>
+      <PropertyRef Name="ExportedTransId" />
+    </Key>
+    <Property Name="ExportedTransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImportedTransId" Type="int" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" Nullable="false" />
+    <Property Name="Rate" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="AllowanceId" Type="int" Nullable="false" />
+    <Property Name="IsAllowance" Type="bit" Nullable="false" />
+    <Property Name="ExportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GuardLocationPayrollUpdate">
+    <Key>
+      <PropertyRef Name="GuardLocationPayrollUpdateId" />
+    </Key>
+    <Property Name="GuardLocationPayrollUpdateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="PayrollUpdated" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GuardStatusMapping">
+    <Key>
+      <PropertyRef Name="ContractorId" />
+    </Key>
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="GuardTypeId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GuardType">
+    <Key>
+      <PropertyRef Name="GuardTypeId" />
+    </Key>
+    <Property Name="GuardTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuardTypeDescription" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Allowance" Type="bit" Nullable="false" />
+    <Property Name="Rate" Type="money" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="HolidayId" />
+    </Key>
+    <Property Name="HolidayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="HolidayRateId" Type="int" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="PayrollCode" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HolidayRate">
+    <Key>
+      <PropertyRef Name="HolidayRateId" />
+    </Key>
+    <Property Name="HolidayRateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="RateMultiplier" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastModiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImportedTransactions">
+    <Key>
+      <PropertyRef Name="ImportedTransId" />
+    </Key>
+    <Property Name="ImportedTransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDate" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ServiceCode" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="ShiftTotal" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="BatchNo" Type="int" Nullable="false" />
+    <Property Name="DateImported" Type="datetime" Nullable="false" />
+    <Property Name="LocationImportedFrom" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="FileSaveName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="ImportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuOptions">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ControlName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PremiumClients">
+    <Key>
+      <PropertyRef Name="PremiumClientId" />
+    </Key>
+    <Property Name="PremiumClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="DutyId" Type="int" Nullable="false" />
+    <Property Name="AllowanceId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="AllowanceRate" Type="money" Nullable="false" />
+    <Property Name="CalculateOnMaxHours" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysNumberSequence">
+    <Key>
+      <PropertyRef Name="NumSequenceId" />
+    </Key>
+    <Property Name="NumSequenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectType" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="NextTransNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemUserAccess">
+    <Key>
+      <PropertyRef Name="UserAccessId" />
+    </Key>
+    <Property Name="UserAccessId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SystemUserId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="MenuNodesId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemUsers">
+    <Key>
+      <PropertyRef Name="SystemUserId" />
+    </Key>
+    <Property Name="SystemUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserImage" Type="image" />
+    <Property Name="AccountExpirable" Type="bit" Nullable="false" />
+    <Property Name="ActivePeriod" Type="int" />
+    <Property Name="RequireUserChange" Type="bit" Nullable="false" />
+    <Property Name="CurrentlyLoggedIn" Type="bit" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SystemUserSettings">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="MdiParentImage" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZoneMapping">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="ZoneId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zones">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+    </Key>
+    <Property Name="ZoneId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ContractorView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ContractorView">
+    <Key>
+      <PropertyRef Name="ContractorId" />
+    </Key>
+    <Property Name="ContractorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="CompanyId" Type="smallint" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="TRN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="NISNo" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DateOfBirth" Type="smalldatetime" />
+    <Property Name="TitleOfCourtesy" Type="char" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.CostAnalysisView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CostAnalysisView">
+    <Key>
+      <PropertyRef Name="ExportedBy" />
+      <PropertyRef Name="CostComponent" />
+      <PropertyRef Name="DateExported" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="CostComponent" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="38" Scale="6" Nullable="false" />
+    <Property Name="ExportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.CustomerView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomerView">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="CustomerRef" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="CustomerDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZoneId" Type="int" />
+    <Property Name="ZoneDescription" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.CustomerZoneView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomerZoneView">
+    <Key>
+      <PropertyRef Name="ZoneId" />
+      <PropertyRef Name="ZoneDescription" />
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="Active" />
+    </Key>
+    <Property Name="ZoneId" Type="int" Nullable="false" />
+    <Property Name="ZoneDescription" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.DutyCodeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DutyCodeView">
+    <Key>
+      <PropertyRef Name="DutyId" />
+    </Key>
+    <Property Name="DutyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DutyCode" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ShortDescription" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rate" Type="float" Nullable="false" />
+    <Property Name="Code" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="PayrollCodeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ExportedTransactionDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ExportedTransactionDetails">
+    <Key>
+      <PropertyRef Name="ImportedTransId" />
+      <PropertyRef Name="TransactionDate" />
+      <PropertyRef Name="ServiceCode" />
+      <PropertyRef Name="ShiftTotal" />
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="ContractorFirstName" />
+      <PropertyRef Name="ContractorLastName" />
+      <PropertyRef Name="CustomerDescription" />
+      <PropertyRef Name="DutyRate" />
+      <PropertyRef Name="AllowanceDescription" />
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="DutyDescription" />
+      <PropertyRef Name="PayrollCode" />
+      <PropertyRef Name="ReferenceId" />
+      <PropertyRef Name="IsAllowance" />
+      <PropertyRef Name="BatchNo" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="FileSaveName" />
+      <PropertyRef Name="LocationImportedFrom" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="ImportedBy" />
+      <PropertyRef Name="ExportedBy" />
+      <PropertyRef Name="DateExported" />
+    </Key>
+    <Property Name="ImportedTransId" Type="int" Nullable="false" />
+    <Property Name="TransactionDate" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="ServiceCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ShiftTotal" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ContractorFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContractorLastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="CustomerDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DutyRate" Type="money" Nullable="false" />
+    <Property Name="AllowanceDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="DutyDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PayrollCode" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ReferenceId" Type="int" Nullable="false" />
+    <Property Name="IsAllowance" Type="bit" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" Nullable="false" />
+    <Property Name="BatchNo" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="FileSaveName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LocationImportedFrom" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="ImportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ExportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="28" Scale="6" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ExportedTransactionSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ExportedTransactionSummary">
+    <Key>
+      <PropertyRef Name="ServiceCode" />
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="ContractorFirstName" />
+      <PropertyRef Name="ContractorLastName" />
+      <PropertyRef Name="CustomerDescription" />
+      <PropertyRef Name="DutyRate" />
+      <PropertyRef Name="AllowanceDescription" />
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="DutyDescription" />
+      <PropertyRef Name="PayrollCode" />
+      <PropertyRef Name="ReferenceId" />
+      <PropertyRef Name="IsAllowance" />
+      <PropertyRef Name="BatchNo" />
+      <PropertyRef Name="FileSaveName" />
+      <PropertyRef Name="LocationImportedFrom" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="ImportedBy" />
+      <PropertyRef Name="ExportedBy" />
+    </Key>
+    <Property Name="ServiceCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ShiftTotal" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ContractorFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContractorLastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="CustomerDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DutyRate" Type="money" Nullable="false" />
+    <Property Name="AllowanceDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="DutyDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PayrollCode" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ReferenceId" Type="int" Nullable="false" />
+    <Property Name="IsAllowance" Type="bit" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" />
+    <Property Name="BatchNo" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="FileSaveName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LocationImportedFrom" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="ImportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ExportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="38" Scale="6" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.GuardForceDisplayView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GuardForceDisplayView">
+    <Key>
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="AddressLine2" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="TRN" />
+      <PropertyRef Name="NISNo" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="TitleOfCourtesy" />
+      <PropertyRef Name="Rate" />
+      <PropertyRef Name="GuardTypeDescription" />
+    </Key>
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="CompanyId" Type="smallint" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="TRN" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="NISNo" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DateOfBirth" Type="smalldatetime" />
+    <Property Name="TitleOfCourtesy" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="GuardTypeDescription" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.GuardMappingView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GuardMappingView">
+    <Key>
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="GuardTypeId" />
+      <PropertyRef Name="GuardTypeDescription" />
+      <PropertyRef Name="Rate" />
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Allowance" />
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="GuardTypeId" Type="int" Nullable="false" />
+    <Property Name="GuardTypeDescription" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="Allowance" Type="bit" Nullable="false" />
+    <Property Name="CompanyId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ImportCalcuationDetailsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ImportCalcuationDetailsView">
+    <Key>
+      <PropertyRef Name="ImportedTransId" />
+      <PropertyRef Name="TransactionDate" />
+      <PropertyRef Name="ServiceCode" />
+      <PropertyRef Name="ShiftTotal" />
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="ContractorFirstName" />
+      <PropertyRef Name="ContractorLastName" />
+      <PropertyRef Name="CustomerDescription" />
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="DutyDescription" />
+      <PropertyRef Name="PayrollCode" />
+      <PropertyRef Name="ReferenceId" />
+      <PropertyRef Name="DutyAllowanceId" />
+      <PropertyRef Name="DutyId" />
+      <PropertyRef Name="Branch" />
+    </Key>
+    <Property Name="ImportedTransId" Type="int" Nullable="false" />
+    <Property Name="TransactionDate" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="ServiceCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ShiftTotal" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ContractorFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContractorLastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="CustomerDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DutyRate" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="DutyDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PayrollCode" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ReferenceId" Type="int" Nullable="false" />
+    <Property Name="IsAllowance" Type="bit" />
+    <Property Name="DutyAllowanceId" Type="int" Nullable="false" />
+    <Property Name="DutyId" Type="int" Nullable="false" />
+    <Property Name="AllowanceHrs" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Branch" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ImportCaluclationSummaryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ImportCaluclationSummaryView">
+    <Key>
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="PayrollCode" />
+      <PropertyRef Name="ServiceCode" />
+      <PropertyRef Name="GLAccount" />
+      <PropertyRef Name="Location" />
+      <PropertyRef Name="Department" />
+      <PropertyRef Name="Notes" />
+      <PropertyRef Name="ReferenceId" />
+      <PropertyRef Name="Branch" />
+    </Key>
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="PayrollCode" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ServiceCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DutyRate" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="Quantity" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="GLAccount" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Branch" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="ReferenceId" Type="int" Nullable="false" />
+    <Property Name="IsAllowance" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ImportedTransactionsLocationView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ImportedTransactionsLocationView">
+    <Key>
+      <PropertyRef Name="CustomerRef" />
+      <PropertyRef Name="CustomerDescription" />
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="ContractorRef" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="DateImported" />
+      <PropertyRef Name="FileSaveName" />
+      <PropertyRef Name="ImportedBy" />
+    </Key>
+    <Property Name="CustomerRef" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="CustomerDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZoneDescription" Type="varchar" MaxLength="25" />
+    <Property Name="TimesWorked" Type="int" />
+    <Property Name="HoursWorked" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ContractorRef" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DateImported" Type="datetime" Nullable="false" />
+    <Property Name="FileSaveName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ImportedTransactionsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ImportedTransactionsView">
+    <Key>
+      <PropertyRef Name="ImportedTransId" />
+      <PropertyRef Name="TransactionDate" />
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="ContractorId" />
+      <PropertyRef Name="ServiceCode" />
+      <PropertyRef Name="ShiftTotal" />
+      <PropertyRef Name="BatchNo" />
+      <PropertyRef Name="DateImported" />
+      <PropertyRef Name="LocationImportedFrom" />
+      <PropertyRef Name="FileSaveName" />
+      <PropertyRef Name="IsExported" />
+      <PropertyRef Name="GuardTypeDescription" />
+      <PropertyRef Name="CustomerDescription" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="ImportedTransId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionDate" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="ContractorId" Type="int" Nullable="false" />
+    <Property Name="ServiceCode" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="ShiftTotal" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="BatchNo" Type="int" Nullable="false" />
+    <Property Name="DateImported" Type="datetime" Nullable="false" />
+    <Property Name="LocationImportedFrom" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="FileSaveName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsExported" Type="int" Nullable="false" />
+    <Property Name="ConvertedImportDate" Type="datetime" />
+    <Property Name="ContractorDescription" Type="varchar" MaxLength="134" />
+    <Property Name="GuardTypeDescription" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CustomerDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZoneDescription" Type="varchar" MaxLength="25" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.PayrollCodeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PayrollCodeView">
+    <Key>
+      <PropertyRef Name="PayrollCodeId" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="CategoryId" />
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="ShortDescription" />
+      <PropertyRef Name="PrivateToCompany" />
+      <PropertyRef Name="DeductNisBeforeCalculatingPen" />
+      <PropertyRef Name="GovernmentApproved" />
+      <PropertyRef Name="OvertimeCode" />
+      <PropertyRef Name="EmployeeGL" />
+      <PropertyRef Name="UseFormattingConventionForEmployeeGL" />
+      <PropertyRef Name="EmployerGL" />
+      <PropertyRef Name="UseFormattingConventionForEmployerGL" />
+      <PropertyRef Name="VolGL" />
+      <PropertyRef Name="UseFormattingConventionForVolGL" />
+      <PropertyRef Name="EmployeeDefault" />
+      <PropertyRef Name="EmployerDefault" />
+      <PropertyRef Name="VoluntaryDefault" />
+      <PropertyRef Name="SystemCode" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="VisualSmartCode" />
+      <PropertyRef Name="BeneficiaryId" />
+      <PropertyRef Name="Priority" />
+      <PropertyRef Name="DisallowVoluntaryDeduction" />
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="RetroCode" />
+      <PropertyRef Name="ArrearsCode" />
+    </Key>
+    <Property Name="PayrollCodeId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="smallint" Nullable="false" />
+    <Property Name="CategoryId" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Code" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShortDescription" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="PrivateToCompany" Type="bit" Nullable="false" />
+    <Property Name="DeductNisBeforeCalculatingPen" Type="bit" Nullable="false" />
+    <Property Name="GovernmentApproved" Type="bit" Nullable="false" />
+    <Property Name="OvertimeCode" Type="bit" Nullable="false" />
+    <Property Name="EmployeeGL" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="UseFormattingConventionForEmployeeGL" Type="bit" Nullable="false" />
+    <Property Name="EmployerGL" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="UseFormattingConventionForEmployerGL" Type="bit" Nullable="false" />
+    <Property Name="VolGL" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="UseFormattingConventionForVolGL" Type="bit" Nullable="false" />
+    <Property Name="EmployeeDefault" Type="real" Nullable="false" />
+    <Property Name="EmployerDefault" Type="real" Nullable="false" />
+    <Property Name="VoluntaryDefault" Type="real" Nullable="false" />
+    <Property Name="SystemCode" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="VisualSmartCode" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="BeneficiaryId" Type="smallint" Nullable="false" />
+    <Property Name="Priority" Type="tinyint" Nullable="false" />
+    <Property Name="DisallowVoluntaryDeduction" Type="bit" Nullable="false" />
+    <Property Name="Reference" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="RetroCode" Type="bit" Nullable="false" />
+    <Property Name="ArrearsCode" Type="bit" Nullable="false" />
+    <Property Name="PayrollCode" Type="varchar" MaxLength="9" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.ServiceAnalysisView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ServiceAnalysisView">
+    <Key>
+      <PropertyRef Name="ExportedBy" />
+      <PropertyRef Name="AnalysisType" />
+      <PropertyRef Name="CostComponent" />
+      <PropertyRef Name="DateExported" />
+      <PropertyRef Name="Hours" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="CostComponent" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" Nullable="false" />
+    <Property Name="Hours" Type="decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="ExportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="AnalysisType" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="38" Scale="6" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.SMARTPayCompanyView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SMARTPayCompanyView">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="TradeName" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="AddressLine2" />
+      <PropertyRef Name="NISNo" />
+      <PropertyRef Name="TaxRef" />
+      <PropertyRef Name="TRN" />
+      <PropertyRef Name="FrequencyId" />
+      <PropertyRef Name="NoOfPeriodsInYear" />
+      <PropertyRef Name="CurrentPeriod" />
+      <PropertyRef Name="CurrentYear" />
+      <PropertyRef Name="CurrentPeriodEndingDate" />
+      <PropertyRef Name="CurrentNisEndingDate" />
+      <PropertyRef Name="TypeOfTaxCredit" />
+      <PropertyRef Name="AnnualTaxCredit" />
+      <PropertyRef Name="GLFormat" />
+      <PropertyRef Name="PayrollType" />
+      <PropertyRef Name="TaxablePortionOfPay" />
+      <PropertyRef Name="PayAdviceFormat" />
+      <PropertyRef Name="ChequeFormat" />
+      <PropertyRef Name="TaxSchemeId" />
+      <PropertyRef Name="DefaultRentalCode" />
+      <PropertyRef Name="Addon" />
+      <PropertyRef Name="CurrencyId" />
+      <PropertyRef Name="NisCeiling" />
+      <PropertyRef Name="WageType" />
+      <PropertyRef Name="RegularHours" />
+      <PropertyRef Name="PaymentType" />
+      <PropertyRef Name="DeductionExcessOption" />
+      <PropertyRef Name="SupressDisplayOfRental" />
+      <PropertyRef Name="PayrollClearingAccount" />
+      <PropertyRef Name="UseFormattingConvention" />
+      <PropertyRef Name="PayrollSuspenseAccount" />
+      <PropertyRef Name="ProcessingStatus" />
+      <PropertyRef Name="DefaultBackupPath" />
+      <PropertyRef Name="PayrollAc" />
+      <PropertyRef Name="BankId" />
+      <PropertyRef Name="BankBranchId" />
+      <PropertyRef Name="IndentificationNo" />
+      <PropertyRef Name="ETransExportPath" />
+      <PropertyRef Name="GLExportType" />
+      <PropertyRef Name="GLExportPath" />
+      <PropertyRef Name="Consolidate" />
+      <PropertyRef Name="ProbationaryPeriod" />
+      <PropertyRef Name="AutoUpdateEmpType" />
+      <PropertyRef Name="FrequencyDescription" />
+      <PropertyRef Name="DualTaxfree" />
+      <PropertyRef Name="StartPeriod" />
+      <PropertyRef Name="PrimaryTaxfree" />
+      <PropertyRef Name="SecondaryTaxfree" />
+      <PropertyRef Name="AutoCalculate" />
+      <PropertyRef Name="CountryId" />
+      <PropertyRef Name="GraduatedIncomeTax" />
+      <PropertyRef Name="PrintCompanyNameOnPayAdvice" />
+      <PropertyRef Name="EmailAddress" />
+      <PropertyRef Name="PhoneNo" />
+      <PropertyRef Name="MailingAddressLine1" />
+      <PropertyRef Name="MailingAddressLine2" />
+      <PropertyRef Name="OverTimeDays" />
+      <PropertyRef Name="OverTimePeriod" />
+      <PropertyRef Name="OverTimeAmount" />
+      <PropertyRef Name="ClockIncluded" />
+      <PropertyRef Name="ClockVersion" />
+      <PropertyRef Name="AutoApproval" />
+      <PropertyRef Name="OverTimeReasonId" />
+      <PropertyRef Name="OverTimeReason" />
+      <PropertyRef Name="LastModified" />
+      <PropertyRef Name="LastModifiedBy" />
+      <PropertyRef Name="MaxPensionPercentage" />
+    </Key>
+    <Property Name="CompanyId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TradeName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NISNo" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="TaxRef" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="TRN" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="FrequencyId" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="NoOfPeriodsInYear" Type="smallint" Nullable="false" />
+    <Property Name="CurrentPeriod" Type="smallint" Nullable="false" />
+    <Property Name="CurrentYear" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="CurrentPeriodEndingDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="CurrentNisEndingDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="TypeOfTaxCredit" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="AnnualTaxCredit" Type="money" Nullable="false" />
+    <Property Name="GLFormat" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="PayrollType" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="TaxablePortionOfPay" Type="real" Nullable="false" />
+    <Property Name="PayAdviceFormat" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ChequeFormat" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="TaxSchemeId" Type="int" Nullable="false" />
+    <Property Name="DefaultRentalCode" Type="int" Nullable="false" />
+    <Property Name="Addon" Type="real" Nullable="false" />
+    <Property Name="CurrencyId" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="NisCeiling" Type="money" Nullable="false" />
+    <Property Name="WageType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="RegularHours" Type="real" Nullable="false" />
+    <Property Name="PaymentType" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="DeductionExcessOption" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="SupressDisplayOfRental" Type="bit" Nullable="false" />
+    <Property Name="PayrollClearingAccount" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="UseFormattingConvention" Type="bit" Nullable="false" />
+    <Property Name="PayrollSuspenseAccount" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="ProcessingStatus" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="DefaultBackupPath" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="PayrollAc" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="BankId" Type="smallint" Nullable="false" />
+    <Property Name="BankBranchId" Type="smallint" Nullable="false" />
+    <Property Name="IndentificationNo" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ETransExportPath" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="GLExportType" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="GLExportPath" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="Consolidate" Type="bit" Nullable="false" />
+    <Property Name="Logo" Type="image" />
+    <Property Name="ProbationaryPeriod" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="AutoUpdateEmpType" Type="bit" Nullable="false" />
+    <Property Name="FrequencyDescription" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="DualTaxfree" Type="bit" Nullable="false" />
+    <Property Name="StartPeriod" Type="tinyint" Nullable="false" />
+    <Property Name="PrimaryTaxfree" Type="money" Nullable="false" />
+    <Property Name="SecondaryTaxfree" Type="money" Nullable="false" />
+    <Property Name="AutoCalculate" Type="bit" Nullable="false" />
+    <Property Name="CountryId" Type="smallint" Nullable="false" />
+    <Property Name="GraduatedIncomeTax" Type="bit" Nullable="false" />
+    <Property Name="PrintCompanyNameOnPayAdvice" Type="bit" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNo" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="MailingAddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MailingAddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OverTimeDays" Type="bit" Nullable="false" />
+    <Property Name="OverTimePeriod" Type="bit" Nullable="false" />
+    <Property Name="OverTimeAmount" Type="float" Nullable="false" />
+    <Property Name="ClockIncluded" Type="bit" Nullable="false" />
+    <Property Name="ClockVersion" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="AutoApproval" Type="bit" Nullable="false" />
+    <Property Name="OverTimeReasonId" Type="smallint" Nullable="false" />
+    <Property Name="OverTimeReason" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastModified" Type="smalldatetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="MaxPensionPercentage" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.SystemMenuView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SystemMenuView">
+    <Key>
+      <PropertyRef Name="MenuNodesId" />
+      <PropertyRef Name="MenuId" />
+      <PropertyRef Name="NodeDescription" />
+      <PropertyRef Name="NodeControlName" />
+      <PropertyRef Name="MenuDescription" />
+      <PropertyRef Name="MenuControlName" />
+    </Key>
+    <Property Name="MenuNodesId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="NodeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NodeControlName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MenuDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MenuControlName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.SystemUserView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SystemUserView">
+    <Key>
+      <PropertyRef Name="SystemUserId" />
+      <PropertyRef Name="MenuId" />
+      <PropertyRef Name="MenuNodesId" />
+      <PropertyRef Name="LastModifiedDate" />
+      <PropertyRef Name="LastModifiedBy" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="AccountExpirable" />
+      <PropertyRef Name="RequireUserChange" />
+      <PropertyRef Name="MenuDescription" />
+      <PropertyRef Name="ControlName" />
+      <PropertyRef Name="NodeDescription" />
+      <PropertyRef Name="NodeControlName" />
+    </Key>
+    <Property Name="SystemUserId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="MenuNodesId" Type="int" Nullable="false" />
+    <Property Name="LastModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserImage" Type="image" />
+    <Property Name="AccountExpirable" Type="bit" Nullable="false" />
+    <Property Name="ActivePeriod" Type="int" />
+    <Property Name="RequireUserChange" Type="bit" Nullable="false" />
+    <Property Name="MenuDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ControlName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NodeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NodeControlName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccountExpirationDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMARTPayExtension.dbo.TimeAnalysisView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TimeAnalysisView">
+    <Key>
+      <PropertyRef Name="ExportedBy" />
+      <PropertyRef Name="CostComponent" />
+      <PropertyRef Name="DateExported" />
+      <PropertyRef Name="Hours" />
+    </Key>
+    <Property Name="CostComponent" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" Nullable="false" />
+    <Property Name="Hours" Type="decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="ExportedBy" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Holiday_HolidayRate">
+    <End Role="HolidayRate" Type="Self.HolidayRate" Multiplicity="1" />
+    <End Role="Holiday" Type="Self.Holiday" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HolidayRate">
+        <PropertyRef Name="HolidayRateId" />
+      </Principal>
+      <Dependent Role="Holiday">
+        <PropertyRef Name="HolidayRateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZoneMapping_Zones">
+    <End Role="Zones" Type="Self.Zones" Multiplicity="1" />
+    <End Role="ZoneMapping" Type="Self.ZoneMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zones">
+        <PropertyRef Name="ZoneId" />
+      </Principal>
+      <Dependent Role="ZoneMapping">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="UpdateGuardLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="SMARTPayExtensionModelStoreContainer">
+    <EntitySet Name="Allowance" EntityType="Self.Allowance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractorAddon" EntityType="Self.ContractorAddon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerSpecificRate" EntityType="Self.CustomerSpecificRate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DutyAllowanceMapping" EntityType="Self.DutyAllowanceMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeOwnWeapon" EntityType="Self.EmployeeOwnWeapon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExportedTransactions" EntityType="Self.ExportedTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GuardLocationPayrollUpdate" EntityType="Self.GuardLocationPayrollUpdate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GuardStatusMapping" EntityType="Self.GuardStatusMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GuardType" EntityType="Self.GuardType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HolidayRate" EntityType="Self.HolidayRate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImportedTransactions" EntityType="Self.ImportedTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuOptions" EntityType="Self.MenuOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PremiumClients" EntityType="Self.PremiumClients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysNumberSequence" EntityType="Self.SysNumberSequence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUserAccess" EntityType="Self.SystemUserAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUserSettings" EntityType="Self.SystemUserSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZoneMapping" EntityType="Self.ZoneMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zones" EntityType="Self.Zones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractorView" EntityType="Self.ContractorView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ContractorView].[ContractorId] AS [ContractorId], 
+[ContractorView].[ContractorRef] AS [ContractorRef], 
+[ContractorView].[FirstName] AS [FirstName], 
+[ContractorView].[LastName] AS [LastName], 
+[ContractorView].[ContractorDescription] AS [ContractorDescription], 
+[ContractorView].[CompanyId] AS [CompanyId], 
+[ContractorView].[AddressLine1] AS [AddressLine1], 
+[ContractorView].[AddressLine2] AS [AddressLine2], 
+[ContractorView].[City] AS [City], 
+[ContractorView].[TRN] AS [TRN], 
+[ContractorView].[NISNo] AS [NISNo], 
+[ContractorView].[Gender] AS [Gender], 
+[ContractorView].[DateOfBirth] AS [DateOfBirth], 
+[ContractorView].[TitleOfCourtesy] AS [TitleOfCourtesy]
+FROM [dbo].[ContractorView] AS [ContractorView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CostAnalysisView" EntityType="Self.CostAnalysisView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[CostAnalysisView].[CostComponent] AS [CostComponent], 
+[CostAnalysisView].[DateExported] AS [DateExported], 
+[CostAnalysisView].[Cost] AS [Cost], 
+[CostAnalysisView].[ExportedBy] AS [ExportedBy]
+FROM [dbo].[CostAnalysisView] AS [CostAnalysisView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CustomerView" EntityType="Self.CustomerView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[CustomerView].[CustomerId] AS [CustomerId], 
+[CustomerView].[CustomerRef] AS [CustomerRef], 
+[CustomerView].[CustomerDescription] AS [CustomerDescription], 
+[CustomerView].[ZoneId] AS [ZoneId], 
+[CustomerView].[ZoneDescription] AS [ZoneDescription]
+FROM [dbo].[CustomerView] AS [CustomerView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CustomerZoneView" EntityType="Self.CustomerZoneView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[CustomerZoneView].[ZoneId] AS [ZoneId], 
+[CustomerZoneView].[ZoneDescription] AS [ZoneDescription], 
+[CustomerZoneView].[CustomerId] AS [CustomerId], 
+[CustomerZoneView].[Active] AS [Active]
+FROM [dbo].[CustomerZoneView] AS [CustomerZoneView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DutyCodeView" EntityType="Self.DutyCodeView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[DutyCodeView].[DutyId] AS [DutyId], 
+[DutyCodeView].[DutyCode] AS [DutyCode], 
+[DutyCodeView].[ShortDescription] AS [ShortDescription], 
+[DutyCodeView].[Description] AS [Description], 
+[DutyCodeView].[Rate] AS [Rate], 
+[DutyCodeView].[Code] AS [Code], 
+[DutyCodeView].[PayrollCodeDescription] AS [PayrollCodeDescription]
+FROM [dbo].[DutyCodeView] AS [DutyCodeView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ExportedTransactionDetails" EntityType="Self.ExportedTransactionDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ExportedTransactionDetails].[ImportedTransId] AS [ImportedTransId], 
+[ExportedTransactionDetails].[TransactionDate] AS [TransactionDate], 
+[ExportedTransactionDetails].[ServiceCode] AS [ServiceCode], 
+[ExportedTransactionDetails].[ShiftTotal] AS [ShiftTotal], 
+[ExportedTransactionDetails].[CustomerId] AS [CustomerId], 
+[ExportedTransactionDetails].[ContractorId] AS [ContractorId], 
+[ExportedTransactionDetails].[ContractorFirstName] AS [ContractorFirstName], 
+[ExportedTransactionDetails].[ContractorLastName] AS [ContractorLastName], 
+[ExportedTransactionDetails].[ContractorDescription] AS [ContractorDescription], 
+[ExportedTransactionDetails].[CustomerDescription] AS [CustomerDescription], 
+[ExportedTransactionDetails].[DutyRate] AS [DutyRate], 
+[ExportedTransactionDetails].[AllowanceDescription] AS [AllowanceDescription], 
+[ExportedTransactionDetails].[ContractorRef] AS [ContractorRef], 
+[ExportedTransactionDetails].[DutyDescription] AS [DutyDescription], 
+[ExportedTransactionDetails].[PayrollCode] AS [PayrollCode], 
+[ExportedTransactionDetails].[ReferenceId] AS [ReferenceId], 
+[ExportedTransactionDetails].[IsAllowance] AS [IsAllowance], 
+[ExportedTransactionDetails].[DateExported] AS [DateExported], 
+[ExportedTransactionDetails].[BatchNo] AS [BatchNo], 
+[ExportedTransactionDetails].[Quantity] AS [Quantity], 
+[ExportedTransactionDetails].[FileSaveName] AS [FileSaveName], 
+[ExportedTransactionDetails].[LocationImportedFrom] AS [LocationImportedFrom], 
+[ExportedTransactionDetails].[CompanyId] AS [CompanyId], 
+[ExportedTransactionDetails].[ImportedBy] AS [ImportedBy], 
+[ExportedTransactionDetails].[ExportedBy] AS [ExportedBy], 
+[ExportedTransactionDetails].[Amount] AS [Amount]
+FROM [dbo].[ExportedTransactionDetails] AS [ExportedTransactionDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ExportedTransactionSummary" EntityType="Self.ExportedTransactionSummary" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ExportedTransactionSummary].[ServiceCode] AS [ServiceCode], 
+[ExportedTransactionSummary].[ShiftTotal] AS [ShiftTotal], 
+[ExportedTransactionSummary].[CustomerId] AS [CustomerId], 
+[ExportedTransactionSummary].[ContractorId] AS [ContractorId], 
+[ExportedTransactionSummary].[ContractorFirstName] AS [ContractorFirstName], 
+[ExportedTransactionSummary].[ContractorLastName] AS [ContractorLastName], 
+[ExportedTransactionSummary].[ContractorDescription] AS [ContractorDescription], 
+[ExportedTransactionSummary].[CustomerDescription] AS [CustomerDescription], 
+[ExportedTransactionSummary].[DutyRate] AS [DutyRate], 
+[ExportedTransactionSummary].[AllowanceDescription] AS [AllowanceDescription], 
+[ExportedTransactionSummary].[ContractorRef] AS [ContractorRef], 
+[ExportedTransactionSummary].[DutyDescription] AS [DutyDescription], 
+[ExportedTransactionSummary].[PayrollCode] AS [PayrollCode], 
+[ExportedTransactionSummary].[ReferenceId] AS [ReferenceId], 
+[ExportedTransactionSummary].[IsAllowance] AS [IsAllowance], 
+[ExportedTransactionSummary].[DateExported] AS [DateExported], 
+[ExportedTransactionSummary].[BatchNo] AS [BatchNo], 
+[ExportedTransactionSummary].[Quantity] AS [Quantity], 
+[ExportedTransactionSummary].[FileSaveName] AS [FileSaveName], 
+[ExportedTransactionSummary].[LocationImportedFrom] AS [LocationImportedFrom], 
+[ExportedTransactionSummary].[CompanyId] AS [CompanyId], 
+[ExportedTransactionSummary].[ImportedBy] AS [ImportedBy], 
+[ExportedTransactionSummary].[ExportedBy] AS [ExportedBy], 
+[ExportedTransactionSummary].[Amount] AS [Amount]
+FROM [dbo].[ExportedTransactionSummary] AS [ExportedTransactionSummary]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GuardForceDisplayView" EntityType="Self.GuardForceDisplayView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[GuardForceDisplayView].[ContractorId] AS [ContractorId], 
+[GuardForceDisplayView].[ContractorRef] AS [ContractorRef], 
+[GuardForceDisplayView].[FirstName] AS [FirstName], 
+[GuardForceDisplayView].[LastName] AS [LastName], 
+[GuardForceDisplayView].[ContractorDescription] AS [ContractorDescription], 
+[GuardForceDisplayView].[CompanyId] AS [CompanyId], 
+[GuardForceDisplayView].[AddressLine1] AS [AddressLine1], 
+[GuardForceDisplayView].[AddressLine2] AS [AddressLine2], 
+[GuardForceDisplayView].[City] AS [City], 
+[GuardForceDisplayView].[TRN] AS [TRN], 
+[GuardForceDisplayView].[NISNo] AS [NISNo], 
+[GuardForceDisplayView].[Gender] AS [Gender], 
+[GuardForceDisplayView].[DateOfBirth] AS [DateOfBirth], 
+[GuardForceDisplayView].[TitleOfCourtesy] AS [TitleOfCourtesy], 
+[GuardForceDisplayView].[Rate] AS [Rate], 
+[GuardForceDisplayView].[GuardTypeDescription] AS [GuardTypeDescription]
+FROM [dbo].[GuardForceDisplayView] AS [GuardForceDisplayView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GuardMappingView" EntityType="Self.GuardMappingView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[GuardMappingView].[ContractorId] AS [ContractorId], 
+[GuardMappingView].[GuardTypeId] AS [GuardTypeId], 
+[GuardMappingView].[GuardTypeDescription] AS [GuardTypeDescription], 
+[GuardMappingView].[Rate] AS [Rate], 
+[GuardMappingView].[ContractorRef] AS [ContractorRef], 
+[GuardMappingView].[FirstName] AS [FirstName], 
+[GuardMappingView].[LastName] AS [LastName], 
+[GuardMappingView].[ContractorDescription] AS [ContractorDescription], 
+[GuardMappingView].[Allowance] AS [Allowance], 
+[GuardMappingView].[CompanyId] AS [CompanyId]
+FROM [dbo].[GuardMappingView] AS [GuardMappingView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ImportCalcuationDetailsView" EntityType="Self.ImportCalcuationDetailsView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ImportCalcuationDetailsView].[ImportedTransId] AS [ImportedTransId], 
+[ImportCalcuationDetailsView].[TransactionDate] AS [TransactionDate], 
+[ImportCalcuationDetailsView].[ServiceCode] AS [ServiceCode], 
+[ImportCalcuationDetailsView].[ShiftTotal] AS [ShiftTotal], 
+[ImportCalcuationDetailsView].[CustomerId] AS [CustomerId], 
+[ImportCalcuationDetailsView].[ContractorId] AS [ContractorId], 
+[ImportCalcuationDetailsView].[ContractorFirstName] AS [ContractorFirstName], 
+[ImportCalcuationDetailsView].[ContractorLastName] AS [ContractorLastName], 
+[ImportCalcuationDetailsView].[ContractorDescription] AS [ContractorDescription], 
+[ImportCalcuationDetailsView].[CustomerDescription] AS [CustomerDescription], 
+[ImportCalcuationDetailsView].[DutyRate] AS [DutyRate], 
+[ImportCalcuationDetailsView].[ContractorRef] AS [ContractorRef], 
+[ImportCalcuationDetailsView].[DutyDescription] AS [DutyDescription], 
+[ImportCalcuationDetailsView].[PayrollCode] AS [PayrollCode], 
+[ImportCalcuationDetailsView].[ReferenceId] AS [ReferenceId], 
+[ImportCalcuationDetailsView].[IsAllowance] AS [IsAllowance], 
+[ImportCalcuationDetailsView].[DutyAllowanceId] AS [DutyAllowanceId], 
+[ImportCalcuationDetailsView].[DutyId] AS [DutyId], 
+[ImportCalcuationDetailsView].[AllowanceHrs] AS [AllowanceHrs], 
+[ImportCalcuationDetailsView].[Branch] AS [Branch]
+FROM [dbo].[ImportCalcuationDetailsView] AS [ImportCalcuationDetailsView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ImportCaluclationSummaryView" EntityType="Self.ImportCaluclationSummaryView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ImportCaluclationSummaryView].[ContractorRef] AS [ContractorRef], 
+[ImportCaluclationSummaryView].[PayrollCode] AS [PayrollCode], 
+[ImportCaluclationSummaryView].[ServiceCode] AS [ServiceCode], 
+[ImportCaluclationSummaryView].[DutyRate] AS [DutyRate], 
+[ImportCaluclationSummaryView].[Quantity] AS [Quantity], 
+[ImportCaluclationSummaryView].[TransactionDate] AS [TransactionDate], 
+[ImportCaluclationSummaryView].[GLAccount] AS [GLAccount], 
+[ImportCaluclationSummaryView].[Location] AS [Location], 
+[ImportCaluclationSummaryView].[Branch] AS [Branch], 
+[ImportCaluclationSummaryView].[Department] AS [Department], 
+[ImportCaluclationSummaryView].[Notes] AS [Notes], 
+[ImportCaluclationSummaryView].[Amount] AS [Amount], 
+[ImportCaluclationSummaryView].[ContractorDescription] AS [ContractorDescription], 
+[ImportCaluclationSummaryView].[ReferenceId] AS [ReferenceId], 
+[ImportCaluclationSummaryView].[IsAllowance] AS [IsAllowance]
+FROM [dbo].[ImportCaluclationSummaryView] AS [ImportCaluclationSummaryView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ImportedTransactionsLocationView" EntityType="Self.ImportedTransactionsLocationView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ImportedTransactionsLocationView].[CustomerRef] AS [CustomerRef], 
+[ImportedTransactionsLocationView].[CustomerDescription] AS [CustomerDescription], 
+[ImportedTransactionsLocationView].[ZoneDescription] AS [ZoneDescription], 
+[ImportedTransactionsLocationView].[TimesWorked] AS [TimesWorked], 
+[ImportedTransactionsLocationView].[HoursWorked] AS [HoursWorked], 
+[ImportedTransactionsLocationView].[ContractorId] AS [ContractorId], 
+[ImportedTransactionsLocationView].[ContractorRef] AS [ContractorRef], 
+[ImportedTransactionsLocationView].[FirstName] AS [FirstName], 
+[ImportedTransactionsLocationView].[LastName] AS [LastName], 
+[ImportedTransactionsLocationView].[ContractorDescription] AS [ContractorDescription], 
+[ImportedTransactionsLocationView].[CustomerId] AS [CustomerId], 
+[ImportedTransactionsLocationView].[DateImported] AS [DateImported], 
+[ImportedTransactionsLocationView].[FileSaveName] AS [FileSaveName], 
+[ImportedTransactionsLocationView].[ImportedBy] AS [ImportedBy]
+FROM [dbo].[ImportedTransactionsLocationView] AS [ImportedTransactionsLocationView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ImportedTransactionsView" EntityType="Self.ImportedTransactionsView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ImportedTransactionsView].[ImportedTransId] AS [ImportedTransId], 
+[ImportedTransactionsView].[TransactionDate] AS [TransactionDate], 
+[ImportedTransactionsView].[CustomerId] AS [CustomerId], 
+[ImportedTransactionsView].[ContractorId] AS [ContractorId], 
+[ImportedTransactionsView].[ServiceCode] AS [ServiceCode], 
+[ImportedTransactionsView].[ShiftTotal] AS [ShiftTotal], 
+[ImportedTransactionsView].[BatchNo] AS [BatchNo], 
+[ImportedTransactionsView].[DateImported] AS [DateImported], 
+[ImportedTransactionsView].[LocationImportedFrom] AS [LocationImportedFrom], 
+[ImportedTransactionsView].[FileSaveName] AS [FileSaveName], 
+[ImportedTransactionsView].[IsExported] AS [IsExported], 
+[ImportedTransactionsView].[ConvertedImportDate] AS [ConvertedImportDate], 
+[ImportedTransactionsView].[ContractorDescription] AS [ContractorDescription], 
+[ImportedTransactionsView].[GuardTypeDescription] AS [GuardTypeDescription], 
+[ImportedTransactionsView].[CustomerDescription] AS [CustomerDescription], 
+[ImportedTransactionsView].[ZoneDescription] AS [ZoneDescription], 
+[ImportedTransactionsView].[Description] AS [Description]
+FROM [dbo].[ImportedTransactionsView] AS [ImportedTransactionsView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PayrollCodeView" EntityType="Self.PayrollCodeView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[PayrollCodeView].[PayrollCodeId] AS [PayrollCodeId], 
+[PayrollCodeView].[CompanyId] AS [CompanyId], 
+[PayrollCodeView].[CategoryId] AS [CategoryId], 
+[PayrollCodeView].[Code] AS [Code], 
+[PayrollCodeView].[Description] AS [Description], 
+[PayrollCodeView].[ShortDescription] AS [ShortDescription], 
+[PayrollCodeView].[PrivateToCompany] AS [PrivateToCompany], 
+[PayrollCodeView].[DeductNisBeforeCalculatingPen] AS [DeductNisBeforeCalculatingPen], 
+[PayrollCodeView].[GovernmentApproved] AS [GovernmentApproved], 
+[PayrollCodeView].[OvertimeCode] AS [OvertimeCode], 
+[PayrollCodeView].[EmployeeGL] AS [EmployeeGL], 
+[PayrollCodeView].[UseFormattingConventionForEmployeeGL] AS [UseFormattingConventionForEmployeeGL], 
+[PayrollCodeView].[EmployerGL] AS [EmployerGL], 
+[PayrollCodeView].[UseFormattingConventionForEmployerGL] AS [UseFormattingConventionForEmployerGL], 
+[PayrollCodeView].[VolGL] AS [VolGL], 
+[PayrollCodeView].[UseFormattingConventionForVolGL] AS [UseFormattingConventionForVolGL], 
+[PayrollCodeView].[EmployeeDefault] AS [EmployeeDefault], 
+[PayrollCodeView].[EmployerDefault] AS [EmployerDefault], 
+[PayrollCodeView].[VoluntaryDefault] AS [VoluntaryDefault], 
+[PayrollCodeView].[SystemCode] AS [SystemCode], 
+[PayrollCodeView].[Active] AS [Active], 
+[PayrollCodeView].[VisualSmartCode] AS [VisualSmartCode], 
+[PayrollCodeView].[BeneficiaryId] AS [BeneficiaryId], 
+[PayrollCodeView].[Priority] AS [Priority], 
+[PayrollCodeView].[DisallowVoluntaryDeduction] AS [DisallowVoluntaryDeduction], 
+[PayrollCodeView].[Reference] AS [Reference], 
+[PayrollCodeView].[RetroCode] AS [RetroCode], 
+[PayrollCodeView].[ArrearsCode] AS [ArrearsCode], 
+[PayrollCodeView].[PayrollCode] AS [PayrollCode]
+FROM [dbo].[PayrollCodeView] AS [PayrollCodeView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ServiceAnalysisView" EntityType="Self.ServiceAnalysisView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ServiceAnalysisView].[CostComponent] AS [CostComponent], 
+[ServiceAnalysisView].[DateExported] AS [DateExported], 
+[ServiceAnalysisView].[Hours] AS [Hours], 
+[ServiceAnalysisView].[ExportedBy] AS [ExportedBy], 
+[ServiceAnalysisView].[AnalysisType] AS [AnalysisType], 
+[ServiceAnalysisView].[Cost] AS [Cost]
+FROM [dbo].[ServiceAnalysisView] AS [ServiceAnalysisView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SMARTPayCompanyView" EntityType="Self.SMARTPayCompanyView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SMARTPayCompanyView].[CompanyId] AS [CompanyId], 
+[SMARTPayCompanyView].[CompanyName] AS [CompanyName], 
+[SMARTPayCompanyView].[Description] AS [Description], 
+[SMARTPayCompanyView].[TradeName] AS [TradeName], 
+[SMARTPayCompanyView].[AddressLine1] AS [AddressLine1], 
+[SMARTPayCompanyView].[AddressLine2] AS [AddressLine2], 
+[SMARTPayCompanyView].[NISNo] AS [NISNo], 
+[SMARTPayCompanyView].[TaxRef] AS [TaxRef], 
+[SMARTPayCompanyView].[TRN] AS [TRN], 
+[SMARTPayCompanyView].[FrequencyId] AS [FrequencyId], 
+[SMARTPayCompanyView].[NoOfPeriodsInYear] AS [NoOfPeriodsInYear], 
+[SMARTPayCompanyView].[CurrentPeriod] AS [CurrentPeriod], 
+[SMARTPayCompanyView].[CurrentYear] AS [CurrentYear], 
+[SMARTPayCompanyView].[CurrentPeriodEndingDate] AS [CurrentPeriodEndingDate], 
+[SMARTPayCompanyView].[CurrentNisEndingDate] AS [CurrentNisEndingDate], 
+[SMARTPayCompanyView].[TypeOfTaxCredit] AS [TypeOfTaxCredit], 
+[SMARTPayCompanyView].[AnnualTaxCredit] AS [AnnualTaxCredit], 
+[SMARTPayCompanyView].[GLFormat] AS [GLFormat], 
+[SMARTPayCompanyView].[PayrollType] AS [PayrollType], 
+[SMARTPayCompanyView].[TaxablePortionOfPay] AS [TaxablePortionOfPay], 
+[SMARTPayCompanyView].[PayAdviceFormat] AS [PayAdviceFormat], 
+[SMARTPayCompanyView].[ChequeFormat] AS [ChequeFormat], 
+[SMARTPayCompanyView].[TaxSchemeId] AS [TaxSchemeId], 
+[SMARTPayCompanyView].[DefaultRentalCode] AS [DefaultRentalCode], 
+[SMARTPayCompanyView].[Addon] AS [Addon], 
+[SMARTPayCompanyView].[CurrencyId] AS [CurrencyId], 
+[SMARTPayCompanyView].[NisCeiling] AS [NisCeiling], 
+[SMARTPayCompanyView].[WageType] AS [WageType], 
+[SMARTPayCompanyView].[RegularHours] AS [RegularHours], 
+[SMARTPayCompanyView].[PaymentType] AS [PaymentType], 
+[SMARTPayCompanyView].[DeductionExcessOption] AS [DeductionExcessOption], 
+[SMARTPayCompanyView].[SupressDisplayOfRental] AS [SupressDisplayOfRental], 
+[SMARTPayCompanyView].[PayrollClearingAccount] AS [PayrollClearingAccount], 
+[SMARTPayCompanyView].[UseFormattingConvention] AS [UseFormattingConvention], 
+[SMARTPayCompanyView].[PayrollSuspenseAccount] AS [PayrollSuspenseAccount], 
+[SMARTPayCompanyView].[ProcessingStatus] AS [ProcessingStatus], 
+[SMARTPayCompanyView].[DefaultBackupPath] AS [DefaultBackupPath], 
+[SMARTPayCompanyView].[PayrollAc] AS [PayrollAc], 
+[SMARTPayCompanyView].[BankId] AS [BankId], 
+[SMARTPayCompanyView].[BankBranchId] AS [BankBranchId], 
+[SMARTPayCompanyView].[IndentificationNo] AS [IndentificationNo], 
+[SMARTPayCompanyView].[ETransExportPath] AS [ETransExportPath], 
+[SMARTPayCompanyView].[GLExportType] AS [GLExportType], 
+[SMARTPayCompanyView].[GLExportPath] AS [GLExportPath], 
+[SMARTPayCompanyView].[Consolidate] AS [Consolidate], 
+[SMARTPayCompanyView].[Logo] AS [Logo], 
+[SMARTPayCompanyView].[ProbationaryPeriod] AS [ProbationaryPeriod], 
+[SMARTPayCompanyView].[AutoUpdateEmpType] AS [AutoUpdateEmpType], 
+[SMARTPayCompanyView].[FrequencyDescription] AS [FrequencyDescription], 
+[SMARTPayCompanyView].[DualTaxfree] AS [DualTaxfree], 
+[SMARTPayCompanyView].[StartPeriod] AS [StartPeriod], 
+[SMARTPayCompanyView].[PrimaryTaxfree] AS [PrimaryTaxfree], 
+[SMARTPayCompanyView].[SecondaryTaxfree] AS [SecondaryTaxfree], 
+[SMARTPayCompanyView].[AutoCalculate] AS [AutoCalculate], 
+[SMARTPayCompanyView].[CountryId] AS [CountryId], 
+[SMARTPayCompanyView].[GraduatedIncomeTax] AS [GraduatedIncomeTax], 
+[SMARTPayCompanyView].[PrintCompanyNameOnPayAdvice] AS [PrintCompanyNameOnPayAdvice], 
+[SMARTPayCompanyView].[EmailAddress] AS [EmailAddress], 
+[SMARTPayCompanyView].[PhoneNo] AS [PhoneNo], 
+[SMARTPayCompanyView].[MailingAddressLine1] AS [MailingAddressLine1], 
+[SMARTPayCompanyView].[MailingAddressLine2] AS [MailingAddressLine2], 
+[SMARTPayCompanyView].[OverTimeDays] AS [OverTimeDays], 
+[SMARTPayCompanyView].[OverTimePeriod] AS [OverTimePeriod], 
+[SMARTPayCompanyView].[OverTimeAmount] AS [OverTimeAmount], 
+[SMARTPayCompanyView].[ClockIncluded] AS [ClockIncluded], 
+[SMARTPayCompanyView].[ClockVersion] AS [ClockVersion], 
+[SMARTPayCompanyView].[AutoApproval] AS [AutoApproval], 
+[SMARTPayCompanyView].[OverTimeReasonId] AS [OverTimeReasonId], 
+[SMARTPayCompanyView].[OverTimeReason] AS [OverTimeReason], 
+[SMARTPayCompanyView].[LastModified] AS [LastModified], 
+[SMARTPayCompanyView].[LastModifiedBy] AS [LastModifiedBy], 
+[SMARTPayCompanyView].[MaxPensionPercentage] AS [MaxPensionPercentage]
+FROM [dbo].[SMARTPayCompanyView] AS [SMARTPayCompanyView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SystemMenuView" EntityType="Self.SystemMenuView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SystemMenuView].[MenuNodesId] AS [MenuNodesId], 
+[SystemMenuView].[MenuId] AS [MenuId], 
+[SystemMenuView].[NodeDescription] AS [NodeDescription], 
+[SystemMenuView].[NodeControlName] AS [NodeControlName], 
+[SystemMenuView].[MenuDescription] AS [MenuDescription], 
+[SystemMenuView].[MenuControlName] AS [MenuControlName]
+FROM [dbo].[SystemMenuView] AS [SystemMenuView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SystemUserView" EntityType="Self.SystemUserView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SystemUserView].[SystemUserId] AS [SystemUserId], 
+[SystemUserView].[MenuId] AS [MenuId], 
+[SystemUserView].[MenuNodesId] AS [MenuNodesId], 
+[SystemUserView].[LastModifiedDate] AS [LastModifiedDate], 
+[SystemUserView].[LastModifiedBy] AS [LastModifiedBy], 
+[SystemUserView].[FirstName] AS [FirstName], 
+[SystemUserView].[MiddleName] AS [MiddleName], 
+[SystemUserView].[LastName] AS [LastName], 
+[SystemUserView].[UserName] AS [UserName], 
+[SystemUserView].[Password] AS [Password], 
+[SystemUserView].[UserImage] AS [UserImage], 
+[SystemUserView].[AccountExpirable] AS [AccountExpirable], 
+[SystemUserView].[ActivePeriod] AS [ActivePeriod], 
+[SystemUserView].[RequireUserChange] AS [RequireUserChange], 
+[SystemUserView].[MenuDescription] AS [MenuDescription], 
+[SystemUserView].[ControlName] AS [ControlName], 
+[SystemUserView].[NodeDescription] AS [NodeDescription], 
+[SystemUserView].[NodeControlName] AS [NodeControlName], 
+[SystemUserView].[AccountExpirationDate] AS [AccountExpirationDate]
+FROM [dbo].[SystemUserView] AS [SystemUserView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TimeAnalysisView" EntityType="Self.TimeAnalysisView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TimeAnalysisView].[CostComponent] AS [CostComponent], 
+[TimeAnalysisView].[DateExported] AS [DateExported], 
+[TimeAnalysisView].[Hours] AS [Hours], 
+[TimeAnalysisView].[ExportedBy] AS [ExportedBy]
+FROM [dbo].[TimeAnalysisView] AS [TimeAnalysisView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Holiday_HolidayRate" Association="Self.FK_Holiday_HolidayRate">
+      <End Role="HolidayRate" EntitySet="HolidayRate" />
+      <End Role="Holiday" EntitySet="Holiday" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZoneMapping_Zones" Association="Self.FK_ZoneMapping_Zones">
+      <End Role="Zones" EntitySet="Zones" />
+      <End Role="ZoneMapping" EntitySet="ZoneMapping" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

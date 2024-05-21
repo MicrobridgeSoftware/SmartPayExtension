@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f19952ba72fe4ff2ab3843b6ec55a1cb" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.Allowance" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.GuardType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.Holiday" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.HolidayRate" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ZoneMapping" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.Zone" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ContractorView" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.DutyCodeView" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="SMARTPayExtensionModel.FK_Holiday_HolidayRate" />
+        <AssociationConnector Association="SMARTPayExtensionModel.FK_ZoneMapping_Zones" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ImportedTransaction" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SysNumberSequence" Width="1.5" PointX="9.25" PointY="7.25" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ImportedTransactionsView" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.DutyAllowanceMapping" Width="1.5" PointX="9.375" PointY="0.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.DutyAllowanceMappingAllowance" />
+        <AssociationConnector Association="SMARTPayExtensionModel.DutyAllowanceMappingDutyCodeView" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.CustomerView" Width="1.5" PointX="0.75" PointY="9.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.ZoneMappingCustomerView" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.GuardStatusMapping" Width="1.5" PointX="9.375" PointY="3.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.GuardStatusMappingGuardType" />
+        <AssociationConnector Association="SMARTPayExtensionModel.GuardStatusMappingContractorView" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.PremiumClient" Width="1.5" PointX="11.375" PointY="0.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.PremiumClientAllowance" />
+        <AssociationConnector Association="SMARTPayExtensionModel.PremiumClientDutyCodeView" />
+        <AssociationConnector Association="SMARTPayExtensionModel.PremiumClientCustomerView" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ContractorAddon" Width="1.5" PointX="11.375" PointY="4.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.ContractorAddonAllowance" />
+        <AssociationConnector Association="SMARTPayExtensionModel.ContractorAddonDutyCodeView" />
+        <AssociationConnector Association="SMARTPayExtensionModel.ContractorAddonCustomerView" />
+        <AssociationConnector Association="SMARTPayExtensionModel.ContractorAddonContractorView" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.EmployeeOwnWeapon" Width="1.5" PointX="5.375" PointY="11.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.ContractorViewEmployeeOwnWeapon" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SystemUser" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ImportCalcuationDetailsView" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SystemMenuView" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.MenuOption" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SystemUserAccess" Width="1.5" PointX="13.375" PointY="4.125" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SystemUserView" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SMARTPayCompanyView" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.GuardForceDisplayView" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ExportedTransactionDetail" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.PayrollCodeView" Width="1.5" PointX="0.75" PointY="16.25" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ImportCaluclationSummaryView" Width="1.5" PointX="3.375" PointY="16.125" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ExportedTransaction" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ExportedTransactionSummary" Width="1.5" PointX="15.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.SystemUserSetting" Width="1.5" PointX="15.375" PointY="15.25" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.CustomerSpecificRate" Width="1.5" PointX="17.375" PointY="0.75" />
+        <AssociationConnector Association="SMARTPayExtensionModel.CustomerSpecificRateCustomerView" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.CustomerZoneView" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.CostAnalysisView" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.TimeAnalysisView" Width="1.5" PointX="17.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ServiceAnalysisView" Width="1.5" PointX="17.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.GuardMappingView" Width="1.5" PointX="17.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.GuardLocationPayrollUpdate" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMARTPayExtensionModel.ImportedTransactionsLocationView" Width="1.5" PointX="19.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

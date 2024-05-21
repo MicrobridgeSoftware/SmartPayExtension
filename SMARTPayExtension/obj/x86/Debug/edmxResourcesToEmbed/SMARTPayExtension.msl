@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMARTPayExtensionModelStoreContainer" CdmEntityContainer="SMARTPayExtensionEntities">
+    <EntitySetMapping Name="Allowances">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.Allowance">
+        <MappingFragment StoreEntitySet="Allowance">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="AllowanceDescription" ColumnName="AllowanceDescription" />
+          <ScalarProperty Name="AllowanceRate" ColumnName="AllowanceRate" />
+          <ScalarProperty Name="CalculateOnMaxHours" ColumnName="CalculateOnMaxHours" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuardTypes">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.GuardType">
+        <MappingFragment StoreEntitySet="GuardType">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="GuardTypeId" ColumnName="GuardTypeId" />
+          <ScalarProperty Name="GuardTypeDescription" ColumnName="GuardTypeDescription" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Holidays">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.Holiday">
+        <MappingFragment StoreEntitySet="Holiday">
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="HolidayId" ColumnName="HolidayId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="HolidayRateId" ColumnName="HolidayRateId" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HolidayRates">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.HolidayRate">
+        <MappingFragment StoreEntitySet="HolidayRate">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="HolidayRateId" ColumnName="HolidayRateId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RateMultiplier" ColumnName="RateMultiplier" />
+          <ScalarProperty Name="LastModiedDate" ColumnName="LastModiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZoneMappings">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ZoneMapping">
+        <MappingFragment StoreEntitySet="ZoneMapping">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zones">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.Zone">
+        <MappingFragment StoreEntitySet="Zones">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractorViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ContractorView">
+        <MappingFragment StoreEntitySet="ContractorView">
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NISNo" ColumnName="NISNo" />
+          <ScalarProperty Name="TRN" ColumnName="TRN" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DutyCodeViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.DutyCodeView">
+        <MappingFragment StoreEntitySet="DutyCodeView">
+          <ScalarProperty Name="PayrollCodeDescription" ColumnName="PayrollCodeDescription" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DutyId" ColumnName="DutyId" />
+          <ScalarProperty Name="DutyCode" ColumnName="DutyCode" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportedTransactions">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ImportedTransaction">
+        <MappingFragment StoreEntitySet="ImportedTransactions">
+          <ScalarProperty Name="ImportedBy" ColumnName="ImportedBy" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="FileSaveName" ColumnName="FileSaveName" />
+          <ScalarProperty Name="LocationImportedFrom" ColumnName="LocationImportedFrom" />
+          <ScalarProperty Name="DateImported" ColumnName="DateImported" />
+          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+          <ScalarProperty Name="ShiftTotal" ColumnName="ShiftTotal" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ImportedTransId" ColumnName="ImportedTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysNumberSequences">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SysNumberSequence">
+        <MappingFragment StoreEntitySet="SysNumberSequence">
+          <ScalarProperty Name="NextTransNo" ColumnName="NextTransNo" />
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="NumSequenceId" ColumnName="NumSequenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportedTransactionsViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ImportedTransactionsView">
+        <MappingFragment StoreEntitySet="ImportedTransactionsView">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+          <ScalarProperty Name="CustomerDescription" ColumnName="CustomerDescription" />
+          <ScalarProperty Name="GuardTypeDescription" ColumnName="GuardTypeDescription" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="ConvertedImportDate" ColumnName="ConvertedImportDate" />
+          <ScalarProperty Name="IsExported" ColumnName="IsExported" />
+          <ScalarProperty Name="FileSaveName" ColumnName="FileSaveName" />
+          <ScalarProperty Name="LocationImportedFrom" ColumnName="LocationImportedFrom" />
+          <ScalarProperty Name="DateImported" ColumnName="DateImported" />
+          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+          <ScalarProperty Name="ShiftTotal" ColumnName="ShiftTotal" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ImportedTransId" ColumnName="ImportedTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DutyAllowanceMappings">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.DutyAllowanceMapping">
+        <MappingFragment StoreEntitySet="DutyAllowanceMapping">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="DutyId" ColumnName="DutyId" />
+          <ScalarProperty Name="DutyAllowanceId" ColumnName="DutyAllowanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.CustomerView">
+        <MappingFragment StoreEntitySet="CustomerView">
+          <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="CustomerDescription" ColumnName="CustomerDescription" />
+          <ScalarProperty Name="CustomerRef" ColumnName="CustomerRef" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuardStatusMappings">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.GuardStatusMapping">
+        <MappingFragment StoreEntitySet="GuardStatusMapping">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="GuardTypeId" ColumnName="GuardTypeId" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PremiumClients">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.PremiumClient">
+        <MappingFragment StoreEntitySet="PremiumClients">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="CalculateOnMaxHours" ColumnName="CalculateOnMaxHours" />
+          <ScalarProperty Name="AllowanceRate" ColumnName="AllowanceRate" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="DutyId" ColumnName="DutyId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PremiumClientId" ColumnName="PremiumClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractorAddons">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ContractorAddon">
+        <MappingFragment StoreEntitySet="ContractorAddon">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="CalculateOnMaxHours" ColumnName="CalculateOnMaxHours" />
+          <ScalarProperty Name="AllowanceRate" ColumnName="AllowanceRate" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="DutyId" ColumnName="DutyId" />
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="ContractorAddonId" ColumnName="ContractorAddonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeOwnWeapons">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.EmployeeOwnWeapon">
+        <MappingFragment StoreEntitySet="EmployeeOwnWeapon">
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastmodifiedDate" ColumnName="LastmodifiedDate" />
+          <ScalarProperty Name="PermitExpiration" ColumnName="PermitExpiration" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="FirearmDescription" ColumnName="FirearmDescription" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="EmployeeOwnWeaponId" ColumnName="EmployeeOwnWeaponId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUsers">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SystemUser">
+        <MappingFragment StoreEntitySet="SystemUsers">
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CurrentlyLoggedIn" ColumnName="CurrentlyLoggedIn" />
+          <ScalarProperty Name="RequireUserChange" ColumnName="RequireUserChange" />
+          <ScalarProperty Name="ActivePeriod" ColumnName="ActivePeriod" />
+          <ScalarProperty Name="AccountExpirable" ColumnName="AccountExpirable" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SystemUserId" ColumnName="SystemUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportCalcuationDetailsViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ImportCalcuationDetailsView">
+        <MappingFragment StoreEntitySet="ImportCalcuationDetailsView">
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="AllowanceHrs" ColumnName="AllowanceHrs" />
+          <ScalarProperty Name="DutyId" ColumnName="DutyId" />
+          <ScalarProperty Name="DutyAllowanceId" ColumnName="DutyAllowanceId" />
+          <ScalarProperty Name="IsAllowance" ColumnName="IsAllowance" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="DutyDescription" ColumnName="DutyDescription" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="DutyRate" ColumnName="DutyRate" />
+          <ScalarProperty Name="CustomerDescription" ColumnName="CustomerDescription" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="ContractorLastName" ColumnName="ContractorLastName" />
+          <ScalarProperty Name="ContractorFirstName" ColumnName="ContractorFirstName" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ShiftTotal" ColumnName="ShiftTotal" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ImportedTransId" ColumnName="ImportedTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemMenuViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SystemMenuView">
+        <MappingFragment StoreEntitySet="SystemMenuView">
+          <ScalarProperty Name="MenuControlName" ColumnName="MenuControlName" />
+          <ScalarProperty Name="MenuDescription" ColumnName="MenuDescription" />
+          <ScalarProperty Name="NodeControlName" ColumnName="NodeControlName" />
+          <ScalarProperty Name="NodeDescription" ColumnName="NodeDescription" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="MenuNodesId" ColumnName="MenuNodesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuOptions">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.MenuOption">
+        <MappingFragment StoreEntitySet="MenuOptions">
+          <ScalarProperty Name="ControlName" ColumnName="ControlName" />
+          <ScalarProperty Name="MenuDescription" ColumnName="MenuDescription" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUserAccesses">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SystemUserAccess">
+        <MappingFragment StoreEntitySet="SystemUserAccess">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="MenuNodesId" ColumnName="MenuNodesId" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="SystemUserId" ColumnName="SystemUserId" />
+          <ScalarProperty Name="UserAccessId" ColumnName="UserAccessId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUserViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SystemUserView">
+        <MappingFragment StoreEntitySet="SystemUserView">
+          <ScalarProperty Name="AccountExpirationDate" ColumnName="AccountExpirationDate" />
+          <ScalarProperty Name="NodeControlName" ColumnName="NodeControlName" />
+          <ScalarProperty Name="NodeDescription" ColumnName="NodeDescription" />
+          <ScalarProperty Name="ControlName" ColumnName="ControlName" />
+          <ScalarProperty Name="MenuDescription" ColumnName="MenuDescription" />
+          <ScalarProperty Name="RequireUserChange" ColumnName="RequireUserChange" />
+          <ScalarProperty Name="ActivePeriod" ColumnName="ActivePeriod" />
+          <ScalarProperty Name="AccountExpirable" ColumnName="AccountExpirable" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="MenuNodesId" ColumnName="MenuNodesId" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="SystemUserId" ColumnName="SystemUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMARTPayCompanyViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SMARTPayCompanyView">
+        <MappingFragment StoreEntitySet="SMARTPayCompanyView">
+          <ScalarProperty Name="MaxPensionPercentage" ColumnName="MaxPensionPercentage" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="OverTimeReason" ColumnName="OverTimeReason" />
+          <ScalarProperty Name="OverTimeReasonId" ColumnName="OverTimeReasonId" />
+          <ScalarProperty Name="AutoApproval" ColumnName="AutoApproval" />
+          <ScalarProperty Name="ClockVersion" ColumnName="ClockVersion" />
+          <ScalarProperty Name="ClockIncluded" ColumnName="ClockIncluded" />
+          <ScalarProperty Name="OverTimeAmount" ColumnName="OverTimeAmount" />
+          <ScalarProperty Name="OverTimePeriod" ColumnName="OverTimePeriod" />
+          <ScalarProperty Name="OverTimeDays" ColumnName="OverTimeDays" />
+          <ScalarProperty Name="MailingAddressLine2" ColumnName="MailingAddressLine2" />
+          <ScalarProperty Name="MailingAddressLine1" ColumnName="MailingAddressLine1" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PrintCompanyNameOnPayAdvice" ColumnName="PrintCompanyNameOnPayAdvice" />
+          <ScalarProperty Name="GraduatedIncomeTax" ColumnName="GraduatedIncomeTax" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="AutoCalculate" ColumnName="AutoCalculate" />
+          <ScalarProperty Name="SecondaryTaxfree" ColumnName="SecondaryTaxfree" />
+          <ScalarProperty Name="PrimaryTaxfree" ColumnName="PrimaryTaxfree" />
+          <ScalarProperty Name="StartPeriod" ColumnName="StartPeriod" />
+          <ScalarProperty Name="DualTaxfree" ColumnName="DualTaxfree" />
+          <ScalarProperty Name="FrequencyDescription" ColumnName="FrequencyDescription" />
+          <ScalarProperty Name="AutoUpdateEmpType" ColumnName="AutoUpdateEmpType" />
+          <ScalarProperty Name="ProbationaryPeriod" ColumnName="ProbationaryPeriod" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Consolidate" ColumnName="Consolidate" />
+          <ScalarProperty Name="GLExportPath" ColumnName="GLExportPath" />
+          <ScalarProperty Name="GLExportType" ColumnName="GLExportType" />
+          <ScalarProperty Name="ETransExportPath" ColumnName="ETransExportPath" />
+          <ScalarProperty Name="IndentificationNo" ColumnName="IndentificationNo" />
+          <ScalarProperty Name="BankBranchId" ColumnName="BankBranchId" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="PayrollAc" ColumnName="PayrollAc" />
+          <ScalarProperty Name="DefaultBackupPath" ColumnName="DefaultBackupPath" />
+          <ScalarProperty Name="ProcessingStatus" ColumnName="ProcessingStatus" />
+          <ScalarProperty Name="PayrollSuspenseAccount" ColumnName="PayrollSuspenseAccount" />
+          <ScalarProperty Name="UseFormattingConvention" ColumnName="UseFormattingConvention" />
+          <ScalarProperty Name="PayrollClearingAccount" ColumnName="PayrollClearingAccount" />
+          <ScalarProperty Name="SupressDisplayOfRental" ColumnName="SupressDisplayOfRental" />
+          <ScalarProperty Name="DeductionExcessOption" ColumnName="DeductionExcessOption" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="RegularHours" ColumnName="RegularHours" />
+          <ScalarProperty Name="WageType" ColumnName="WageType" />
+          <ScalarProperty Name="NisCeiling" ColumnName="NisCeiling" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Addon" ColumnName="Addon" />
+          <ScalarProperty Name="DefaultRentalCode" ColumnName="DefaultRentalCode" />
+          <ScalarProperty Name="TaxSchemeId" ColumnName="TaxSchemeId" />
+          <ScalarProperty Name="ChequeFormat" ColumnName="ChequeFormat" />
+          <ScalarProperty Name="PayAdviceFormat" ColumnName="PayAdviceFormat" />
+          <ScalarProperty Name="TaxablePortionOfPay" ColumnName="TaxablePortionOfPay" />
+          <ScalarProperty Name="PayrollType" ColumnName="PayrollType" />
+          <ScalarProperty Name="GLFormat" ColumnName="GLFormat" />
+          <ScalarProperty Name="AnnualTaxCredit" ColumnName="AnnualTaxCredit" />
+          <ScalarProperty Name="TypeOfTaxCredit" ColumnName="TypeOfTaxCredit" />
+          <ScalarProperty Name="CurrentNisEndingDate" ColumnName="CurrentNisEndingDate" />
+          <ScalarProperty Name="CurrentPeriodEndingDate" ColumnName="CurrentPeriodEndingDate" />
+          <ScalarProperty Name="CurrentYear" ColumnName="CurrentYear" />
+          <ScalarProperty Name="CurrentPeriod" ColumnName="CurrentPeriod" />
+          <ScalarProperty Name="NoOfPeriodsInYear" ColumnName="NoOfPeriodsInYear" />
+          <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+          <ScalarProperty Name="TRN" ColumnName="TRN" />
+          <ScalarProperty Name="TaxRef" ColumnName="TaxRef" />
+          <ScalarProperty Name="NISNo" ColumnName="NISNo" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="TradeName" ColumnName="TradeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuardForceDisplayViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.GuardForceDisplayView">
+        <MappingFragment StoreEntitySet="GuardForceDisplayView">
+          <ScalarProperty Name="GuardTypeDescription" ColumnName="GuardTypeDescription" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NISNo" ColumnName="NISNo" />
+          <ScalarProperty Name="TRN" ColumnName="TRN" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportedTransactionDetails">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ExportedTransactionDetail">
+        <MappingFragment StoreEntitySet="ExportedTransactionDetails">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+          <ScalarProperty Name="ImportedBy" ColumnName="ImportedBy" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="LocationImportedFrom" ColumnName="LocationImportedFrom" />
+          <ScalarProperty Name="FileSaveName" ColumnName="FileSaveName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="IsAllowance" ColumnName="IsAllowance" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="DutyDescription" ColumnName="DutyDescription" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="AllowanceDescription" ColumnName="AllowanceDescription" />
+          <ScalarProperty Name="DutyRate" ColumnName="DutyRate" />
+          <ScalarProperty Name="CustomerDescription" ColumnName="CustomerDescription" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="ContractorLastName" ColumnName="ContractorLastName" />
+          <ScalarProperty Name="ContractorFirstName" ColumnName="ContractorFirstName" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ShiftTotal" ColumnName="ShiftTotal" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ImportedTransId" ColumnName="ImportedTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayrollCodeViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.PayrollCodeView">
+        <MappingFragment StoreEntitySet="PayrollCodeView">
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="ArrearsCode" ColumnName="ArrearsCode" />
+          <ScalarProperty Name="RetroCode" ColumnName="RetroCode" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="DisallowVoluntaryDeduction" ColumnName="DisallowVoluntaryDeduction" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="BeneficiaryId" ColumnName="BeneficiaryId" />
+          <ScalarProperty Name="VisualSmartCode" ColumnName="VisualSmartCode" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SystemCode" ColumnName="SystemCode" />
+          <ScalarProperty Name="VoluntaryDefault" ColumnName="VoluntaryDefault" />
+          <ScalarProperty Name="EmployerDefault" ColumnName="EmployerDefault" />
+          <ScalarProperty Name="EmployeeDefault" ColumnName="EmployeeDefault" />
+          <ScalarProperty Name="UseFormattingConventionForVolGL" ColumnName="UseFormattingConventionForVolGL" />
+          <ScalarProperty Name="VolGL" ColumnName="VolGL" />
+          <ScalarProperty Name="UseFormattingConventionForEmployerGL" ColumnName="UseFormattingConventionForEmployerGL" />
+          <ScalarProperty Name="EmployerGL" ColumnName="EmployerGL" />
+          <ScalarProperty Name="UseFormattingConventionForEmployeeGL" ColumnName="UseFormattingConventionForEmployeeGL" />
+          <ScalarProperty Name="EmployeeGL" ColumnName="EmployeeGL" />
+          <ScalarProperty Name="OvertimeCode" ColumnName="OvertimeCode" />
+          <ScalarProperty Name="GovernmentApproved" ColumnName="GovernmentApproved" />
+          <ScalarProperty Name="DeductNisBeforeCalculatingPen" ColumnName="DeductNisBeforeCalculatingPen" />
+          <ScalarProperty Name="PrivateToCompany" ColumnName="PrivateToCompany" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="PayrollCodeId" ColumnName="PayrollCodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportCaluclationSummaryViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ImportCaluclationSummaryView">
+        <MappingFragment StoreEntitySet="ImportCaluclationSummaryView">
+          <ScalarProperty Name="IsAllowance" ColumnName="IsAllowance" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="GLAccount" ColumnName="GLAccount" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="DutyRate" ColumnName="DutyRate" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportedTransactions">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ExportedTransaction">
+        <MappingFragment StoreEntitySet="ExportedTransactions">
+          <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+          <ScalarProperty Name="IsAllowance" ColumnName="IsAllowance" />
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="ImportedTransId" ColumnName="ImportedTransId" />
+          <ScalarProperty Name="ExportedTransId" ColumnName="ExportedTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportedTransactionSummaries">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ExportedTransactionSummary">
+        <MappingFragment StoreEntitySet="ExportedTransactionSummary">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+          <ScalarProperty Name="ImportedBy" ColumnName="ImportedBy" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="LocationImportedFrom" ColumnName="LocationImportedFrom" />
+          <ScalarProperty Name="FileSaveName" ColumnName="FileSaveName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="IsAllowance" ColumnName="IsAllowance" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="PayrollCode" ColumnName="PayrollCode" />
+          <ScalarProperty Name="DutyDescription" ColumnName="DutyDescription" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="AllowanceDescription" ColumnName="AllowanceDescription" />
+          <ScalarProperty Name="DutyRate" ColumnName="DutyRate" />
+          <ScalarProperty Name="CustomerDescription" ColumnName="CustomerDescription" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="ContractorLastName" ColumnName="ContractorLastName" />
+          <ScalarProperty Name="ContractorFirstName" ColumnName="ContractorFirstName" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ShiftTotal" ColumnName="ShiftTotal" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUserSettings">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.SystemUserSetting">
+        <MappingFragment StoreEntitySet="SystemUserSettings">
+          <ScalarProperty Name="MdiParentImage" ColumnName="MdiParentImage" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerSpecificRates">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.CustomerSpecificRate">
+        <MappingFragment StoreEntitySet="CustomerSpecificRate">
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="GuardTypeId" ColumnName="GuardTypeId" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerZoneViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.CustomerZoneView">
+        <MappingFragment StoreEntitySet="CustomerZoneView">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CostAnalysisViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.CostAnalysisView">
+        <MappingFragment StoreEntitySet="CostAnalysisView">
+          <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="CostComponent" ColumnName="CostComponent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeAnalysisViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.TimeAnalysisView">
+        <MappingFragment StoreEntitySet="TimeAnalysisView">
+          <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="CostComponent" ColumnName="CostComponent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceAnalysisViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ServiceAnalysisView">
+        <MappingFragment StoreEntitySet="ServiceAnalysisView">
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="AnalysisType" ColumnName="AnalysisType" />
+          <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="CostComponent" ColumnName="CostComponent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuardMappingViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.GuardMappingView">
+        <MappingFragment StoreEntitySet="GuardMappingView">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="GuardTypeDescription" ColumnName="GuardTypeDescription" />
+          <ScalarProperty Name="GuardTypeId" ColumnName="GuardTypeId" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuardLocationPayrollUpdates">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.GuardLocationPayrollUpdate">
+        <MappingFragment StoreEntitySet="GuardLocationPayrollUpdate">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PayrollUpdated" ColumnName="PayrollUpdated" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="GuardLocationPayrollUpdateId" ColumnName="GuardLocationPayrollUpdateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportedTransactionsLocationViews">
+      <EntityTypeMapping TypeName="SMARTPayExtensionModel.ImportedTransactionsLocationView">
+        <MappingFragment StoreEntitySet="ImportedTransactionsLocationView">
+          <ScalarProperty Name="ImportedBy" ColumnName="ImportedBy" />
+          <ScalarProperty Name="FileSaveName" ColumnName="FileSaveName" />
+          <ScalarProperty Name="DateImported" ColumnName="DateImported" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ContractorDescription" ColumnName="ContractorDescription" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ContractorRef" ColumnName="ContractorRef" />
+          <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+          <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />
+          <ScalarProperty Name="TimesWorked" ColumnName="TimesWorked" />
+          <ScalarProperty Name="ZoneDescription" ColumnName="ZoneDescription" />
+          <ScalarProperty Name="CustomerDescription" ColumnName="CustomerDescription" />
+          <ScalarProperty Name="CustomerRef" ColumnName="CustomerRef" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UpdateGuardLocation" FunctionName="SMARTPayExtensionModel.Store.UpdateGuardLocation" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7D9EFD27-7D3D-4B27-8C0C-ED8738733C24}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMARTPayExtension</RootNamespace>
+    <AssemblyName>SMARTPayExtension</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_wallet_54896.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2016.2.608.40\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.ChartView, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadDiagram, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RichTextEditor, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Light, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows8, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2016.2.608.40\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2016.2.608.40\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikExport, Version=2016.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Allowance.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContractorAddon.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContractorView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostAnalysisView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSpecificRate.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerZoneView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DutyAllowanceMapping.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DutyCodeView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeOwnWeapon.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExportedTransaction.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExportedTransactionDetail.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExportedTransactionSummary.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuardForceDisplayView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuardLocationPayrollUpdate.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuardMappingView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuardStatusMapping.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuardType.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Holiday.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayRate.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportCalcuationDetailsView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportCaluclationSummaryView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportedTransaction.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportedTransactionsLocationView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportedTransactionsView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuOption.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollCodeView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PremiumClient.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RadForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RadForm1.Designer.cs">
+      <DependentUpon>RadForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceAnalysisView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMARTPayCompanyView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMARTPayExtension.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMARTPayExtension.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMARTPayExtension.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMARTPayExtension.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMARTPayExtension.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SysNumberSequence.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemMenuView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemUser.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemUserAccess.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemUserSetting.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemUserView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TechLibrary\Encryption.cs" />
+    <Compile Include="TechLibrary\ExportGridViewValues.cs" />
+    <Compile Include="TechLibrary\ImportCSVList.cs" />
+    <Compile Include="TechLibrary\CurrentUserCredentials.cs" />
+    <Compile Include="TechLibrary\SMARTPayExtConstants.cs" />
+    <Compile Include="TimeAnalysisView.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\ContractorAddonFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\ContractorAddonFrom.Designer.cs">
+      <DependentUpon>ContractorAddonFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\CostAnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\CostAnalysisForm.Designer.cs">
+      <DependentUpon>CostAnalysisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\EmployeeRateChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\EmployeeRateChangeForm.Designer.cs">
+      <DependentUpon>EmployeeRateChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\GuardForceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\GuardForceForm.Designer.cs">
+      <DependentUpon>GuardForceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\GuardLocationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\GuardLocationForm.Designer.cs">
+      <DependentUpon>GuardLocationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\OwnWeaponForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Employee\OwnWeaponForm.Designer.cs">
+      <DependentUpon>OwnWeaponForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Export\ExportTransactionLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Export\ExportTransactionLookup.Designer.cs">
+      <DependentUpon>ExportTransactionLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Export\TransactionExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Export\TransactionExportForm.Designer.cs">
+      <DependentUpon>TransactionExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Import\ImportCompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Import\ImportCompanyForm.Designer.cs">
+      <DependentUpon>ImportCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Import\ImportTransactionLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Import\ImportTransactionLookup.Designer.cs">
+      <DependentUpon>ImportTransactionLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Import\TransactionImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Import\TransactionImportForm.Designer.cs">
+      <DependentUpon>TransactionImportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Security\PasswordChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Security\PasswordChangeForm.Designer.cs">
+      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Security\SystemUserDisplayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Security\SystemUserDisplayForm.Designer.cs">
+      <DependentUpon>SystemUserDisplayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Security\SystemUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Security\SystemUserForm.Designer.cs">
+      <DependentUpon>SystemUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Security\SystemUserRightsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Security\SystemUserRightsForm.Designer.cs">
+      <DependentUpon>SystemUserRightsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Security\UserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Security\UserLoginForm.Designer.cs">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\AllowanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\AllowanceForm.Designer.cs">
+      <DependentUpon>AllowanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\ClientSpecificRateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\ClientSpecificRateForm.Designer.cs">
+      <DependentUpon>ClientSpecificRateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\DutyTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\DutyTypeForm.Designer.cs">
+      <DependentUpon>DutyTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\GuardStatusMappingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\GuardStatusMappingForm.Designer.cs">
+      <DependentUpon>GuardStatusMappingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\GuardTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\GuardTypeForm.Designer.cs">
+      <DependentUpon>GuardTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\HolidayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\HolidayForm.Designer.cs">
+      <DependentUpon>HolidayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\HolidayPayRate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\HolidayPayRate.Designer.cs">
+      <DependentUpon>HolidayPayRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\PremiumClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\PremiumClientsForm.Designer.cs">
+      <DependentUpon>PremiumClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\ZoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\ZoneForm.Designer.cs">
+      <DependentUpon>ZoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\ZoneMappingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Setup\ZoneMappingForm.Designer.cs">
+      <DependentUpon>ZoneMappingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zone.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneMapping.cs">
+      <DependentUpon>SMARTPayExtension.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="RadForm1.resx">
+      <DependentUpon>RadForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Forms\Employee\ContractorAddonFrom.resx">
+      <DependentUpon>ContractorAddonFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Employee\CostAnalysisForm.resx">
+      <DependentUpon>CostAnalysisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Employee\EmployeeRateChangeForm.resx">
+      <DependentUpon>EmployeeRateChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Employee\GuardForceForm.resx">
+      <DependentUpon>GuardForceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Employee\GuardLocationForm.resx">
+      <DependentUpon>GuardLocationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Employee\OwnWeaponForm.resx">
+      <DependentUpon>OwnWeaponForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Export\ExportTransactionLookup.resx">
+      <DependentUpon>ExportTransactionLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Export\TransactionExportForm.resx">
+      <DependentUpon>TransactionExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Import\ImportCompanyForm.resx">
+      <DependentUpon>ImportCompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Import\ImportTransactionLookup.resx">
+      <DependentUpon>ImportTransactionLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Import\TransactionImportForm.resx">
+      <DependentUpon>TransactionImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Security\PasswordChangeForm.resx">
+      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Security\SystemUserDisplayForm.resx">
+      <DependentUpon>SystemUserDisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Security\SystemUserForm.resx">
+      <DependentUpon>SystemUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Security\SystemUserRightsForm.resx">
+      <DependentUpon>SystemUserRightsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Security\UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\AllowanceForm.resx">
+      <DependentUpon>AllowanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\ClientSpecificRateForm.resx">
+      <DependentUpon>ClientSpecificRateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\DutyTypeForm.resx">
+      <DependentUpon>DutyTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\GuardStatusMappingForm.resx">
+      <DependentUpon>GuardStatusMappingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\GuardTypeForm.resx">
+      <DependentUpon>GuardTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\HolidayForm.resx">
+      <DependentUpon>HolidayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\HolidayPayRate.resx">
+      <DependentUpon>HolidayPayRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\PremiumClientsForm.resx">
+      <DependentUpon>PremiumClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\ZoneForm.resx">
+      <DependentUpon>ZoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Setup\ZoneMappingForm.resx">
+      <DependentUpon>ZoneMappingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Allowance.datasource" />
+    <None Include="Properties\DataSources\ContractorAddon.datasource" />
+    <None Include="Properties\DataSources\ContractorView.datasource" />
+    <None Include="Properties\DataSources\CostAnalysisView.datasource" />
+    <None Include="Properties\DataSources\CustomerSpecificRate.datasource" />
+    <None Include="Properties\DataSources\CustomerView.datasource" />
+    <None Include="Properties\DataSources\DutyAllowanceMapping.datasource" />
+    <None Include="Properties\DataSources\DutyCodeView.datasource" />
+    <None Include="Properties\DataSources\EmployeeOwnWeapon.datasource" />
+    <None Include="Properties\DataSources\FromMenu.datasource" />
+    <None Include="Properties\DataSources\GuardForceDisplayView.datasource" />
+    <None Include="Properties\DataSources\GuardStatusMapping.datasource" />
+    <None Include="Properties\DataSources\GuardType.datasource" />
+    <None Include="Properties\DataSources\Holiday.datasource" />
+    <None Include="Properties\DataSources\HolidayRate.datasource" />
+    <None Include="Properties\DataSources\MainWindow.datasource" />
+    <None Include="Properties\DataSources\PremiumClient.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\RadForm1.datasource" />
+    <None Include="Properties\DataSources\ServiceAnalysisView.datasource" />
+    <None Include="Properties\DataSources\SMARTPayCompanyView.datasource" />
+    <None Include="Properties\DataSources\SMARTPayExtensionEntities.datasource" />
+    <None Include="Properties\DataSources\SystemUser.datasource" />
+    <None Include="Properties\DataSources\TimeAnalysisView.datasource" />
+    <None Include="Properties\DataSources\Zone.datasource" />
+    <None Include="Properties\DataSources\ZoneMapping.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="SMARTPayExtension.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SMARTPayExtension.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SMARTPayExtension.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SMARTPayExtension.edmx</DependentUpon>
+      <LastGenOutput>SMARTPayExtension.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SMARTPayExtension.edmx.diagram">
+      <DependentUpon>SMARTPayExtension.edmx</DependentUpon>
+    </None>
+    <None Include="SMARTPayExtension.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SMARTPayExtension.edmx</DependentUpon>
+      <LastGenOutput>SMARTPayExtension.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <!--sirinie -->
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apps-background-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Edit_page_131907.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_import_32405.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\file-manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symbols-Delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-as-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_close_36841.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_todo_list_add_17451.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Log Out_27856.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_import_17388.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_import-export_63126.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_human-folder-saved-search_25169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_xls_7661.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="if_wallet_54896.ico" />
+    <None Include="Resources\sc_bg.png" />
+    <None Include="Resources\if_excel_83688.png" />
+    <None Include="Resources\edit-clear-32.png" />
+    <None Include="Resources\Printer.png" />
+    <None Include="Resources\button_ok.png" />
+    <None Include="Resources\door_in.png" />
+    <None Include="Resources\login image.png" />
+    <None Include="Resources\System-Security-2-icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

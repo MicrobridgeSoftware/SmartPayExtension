@@ -1,0 +1,4 @@
+EmployeeRef,PayrollCode,DutyCode,Rate,Quantity,Amount,TransactionDate,GlAccount,Location,Branch,Department,Notes
+PLIME31,,UN,250.000000,30.00,7500.000000,29/03/2018,,,,,
+PLIME31,FT003,,894.000000,3.00,2682.000000,29/03/2018,,,,,
+PLIME31,PAY,,6000.000000,3.00,18000.000000,29/03/2018,,,,,
